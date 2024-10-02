@@ -6,7 +6,8 @@
       "title": "About Us",
       "headings": {
         "about-us": "About Us",
-        "project-team": "Project team",
+        "nustates": "NUStates",
+        "low-wei-bin": "Low Wei Bin",
         "dylan-wong": "Dylan Wong",
         "tan-xin-quan": "Tan Xin Quan",
         "isaac-teo": "Isaac Teo"
@@ -144,6 +145,14 @@
     {
       "src": "team/isaac.md",
       "title": "John Doe's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/orangecatloves.md",
+      "title": "Low Wei Bin's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
