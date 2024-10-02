@@ -7,6 +7,7 @@
       "headings": {
         "about-us": "About Us",
         "nustates": "NUStates",
+        "trisha-patodia": "Trisha Patodia",
         "low-wei-bin": "Low Wei Bin",
         "dylan-wong": "Dylan Wong",
         "tan-xin-quan": "Tan Xin Quan",
@@ -153,6 +154,14 @@
     {
       "src": "team/orangecatloves.md",
       "title": "Low Wei Bin's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/triishaa.md",
+      "title": "John Doe's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
