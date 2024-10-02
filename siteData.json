@@ -7,11 +7,9 @@
       "headings": {
         "about-us": "About Us",
         "project-team": "Project team",
+        "dylan-wong": "Dylan Wong",
         "tan-xin-quan": "Tan Xin Quan",
-        "isaac-teo": "Isaac Teo",
-        "jane-doe": "Jane Doe",
-        "johnny-doe": "Johnny Doe",
-        "jean-doe": "Jean Doe"
+        "isaac-teo": "Isaac Teo"
       },
       "headingKeywords": {}
     },
@@ -136,15 +134,15 @@
       "headingKeywords": {}
     },
     {
-      "src": "team/isaac.md",
-      "title": "John Doe's Project Portfolio Page",
+      "src": "team/dylan.md",
+      "title": "Dylan's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
       "headingKeywords": {}
     },
     {
-      "src": "team/johndoe.md",
+      "src": "team/isaac.md",
       "title": "John Doe's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
