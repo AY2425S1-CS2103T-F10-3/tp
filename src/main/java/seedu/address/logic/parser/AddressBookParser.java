@@ -13,6 +13,7 @@ import seedu.address.logic.commands.AddPropertyToSellCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.DeletePropertyToSellCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindNameCommand;
@@ -83,6 +84,9 @@ public class AddressBookParser {
 
         case AddPropertyToSellCommand.COMMAND_WORD:
             return new AddPropertyToSellParser().parse(arguments);
+
+        case DeletePropertyToSellCommand.COMMAND_WORD:
+            return new DeletePropertyToSellCommandParser().parse(arguments);
 
         default:
             logger.finer("This user input caused a ParseException: " + userInput);

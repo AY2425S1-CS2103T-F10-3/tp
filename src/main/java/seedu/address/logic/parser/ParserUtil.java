@@ -25,6 +25,7 @@ import seedu.address.model.tag.Tag;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    public static final String MESSAGE_INVALID_INDEXES = "Insufficient number of indexes provided.";
 
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
@@ -37,6 +38,46 @@ public class ParserUtil {
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
+    }
+
+    /**
+     * Parses {@code oneBasedIndex oneBasedIndex} into an {@code Index} and returns it.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @param oneBasedIndexes A String containing Indexes separated by one or more spaces
+     * @return Index of the first index in the oneBasedIndexes
+     * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
+     */
+    public static Index parseFirstIndex(String oneBasedIndexes, int minimumIndexCount) throws ParseException {
+        String[] indexList = oneBasedIndexes.trim().split("//s+");
+        if (indexList.length < minimumIndexCount) {
+            throw new ParseException(MESSAGE_INVALID_INDEXES);
+        }
+        String firstIndex = indexList[0].trim();
+        if (!StringUtil.isNonZeroUnsignedInteger(firstIndex)) {
+            throw new ParseException(MESSAGE_INVALID_INDEX);
+        }
+        return Index.fromOneBased(Integer.parseInt(firstIndex));
+    }
+
+    /**
+     * Parses {@code oneBasedIndex oneBasedIndex} into an {@code Index} and returns it.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @param oneBasedIndexes A String containing Indexes separated by one or more spaces
+     * @return Index of the second index in the oneBasedIndexes
+     * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
+     */
+    public static Index parseSecondIndex(String oneBasedIndexes, int minimumIndexCount) throws ParseException {
+        String[] indexList = oneBasedIndexes.trim().split("//s+");
+        if (indexList.length < minimumIndexCount) {
+            throw new ParseException(MESSAGE_INVALID_INDEXES);
+        }
+        String secondIndex = indexList[1].trim();
+        if (!StringUtil.isNonZeroUnsignedInteger(secondIndex)) {
+            throw new ParseException((MESSAGE_INVALID_INDEX));
+        }
+        return Index.fromOneBased(Integer.parseInt(secondIndex));
     }
 
     /**

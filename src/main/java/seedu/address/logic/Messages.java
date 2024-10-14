@@ -48,4 +48,16 @@ public class Messages {
         return builder.toString();
     }
 
+    /**
+     * Formats the {@code person} for display property data to the user.
+     */
+    public static String propertyFormat(Person person) {
+        final StringBuilder builder = new StringBuilder();
+        builder.append(person.getName())
+                .append("; Selling Properties: ")
+                .append(person.getPhone())
+                .append("; Buying Properties: ");
+        return builder.toString();
+    }
+
 }

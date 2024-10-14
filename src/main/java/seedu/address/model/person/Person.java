@@ -83,6 +83,20 @@ public class Person {
     }
 
     /**
+     * Returns a new list of properties to sell.
+     */
+    public List<Property> getSellingProperties() {
+        return new ArrayList<>(sellingProperties);
+    }
+
+    /**
+     * Returns a new list of properties to buy.
+     */
+    public List<Property> getBuyingProperties() {
+        return new ArrayList<>(buyingProperties);
+    }
+
+    /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
      */
@@ -151,5 +165,4 @@ public class Person {
                 .add("tags", tags)
                 .toString();
     }
-
 }
