@@ -49,7 +49,7 @@ public class ParserUtil {
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseFirstIndex(String oneBasedIndexes, int minimumIndexCount) throws ParseException {
-        String[] indexList = oneBasedIndexes.trim().split("//s+");
+        String[] indexList = oneBasedIndexes.trim().split("\\s+");
         if (indexList.length < minimumIndexCount) {
             throw new ParseException(MESSAGE_INVALID_INDEXES);
         }
@@ -69,7 +69,7 @@ public class ParserUtil {
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseSecondIndex(String oneBasedIndexes, int minimumIndexCount) throws ParseException {
-        String[] indexList = oneBasedIndexes.trim().split("//s+");
+        String[] indexList = oneBasedIndexes.trim().split("\\s+");
         if (indexList.length < minimumIndexCount) {
             throw new ParseException(MESSAGE_INVALID_INDEXES);
         }

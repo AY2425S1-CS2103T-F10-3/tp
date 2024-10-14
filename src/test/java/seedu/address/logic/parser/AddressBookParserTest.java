@@ -6,6 +6,7 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PROPERTY_TO_SELL;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +19,6 @@ import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.DeletePropertyToSellCommand;
-import seedu.address.logic.commands.DeletePropertyToSellCommand.EditSellerDescriptor;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.commands.ExitCommand;
@@ -34,7 +34,9 @@ import seedu.address.model.person.Price;
 import seedu.address.model.person.Property;
 import seedu.address.model.person.UnitNumber;
 import seedu.address.model.tag.Tag;*/
-import seedu.address.testutil.*;
+import seedu.address.testutil.EditPersonDescriptorBuilder;
+import seedu.address.testutil.PersonUtil;
+import seedu.address.testutil.PersonBuilder;
 
 public class AddressBookParserTest {
 
@@ -111,21 +113,14 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_delSell() throws Exception {
-        Person person = new PersonBuilder().build();
-        PropertyToSellBuilder propertyToSell = new PropertyToSellBuilder();
-        EditSellerDescriptor descriptor = new EditSellerDescriptorBuilder(person).build().;
-        EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + INDEX_FIRST_PERSON.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
-        assertEquals(new EditCommand(INDEX_FIRST_PERSON, descriptor), command);
+        DeletePropertyToSellCommand command = (DeletePropertyToSellCommand) parser.parseCommand(
+                DeletePropertyToSellCommand.COMMAND_WORD
+                + " "
+                + INDEX_FIRST_PERSON.getOneBased()
+                + " "
+                + INDEX_FIRST_PROPERTY_TO_SELL.getOneBased());
+        assertEquals(new DeletePropertyToSellCommand(INDEX_FIRST_PERSON, INDEX_FIRST_PROPERTY_TO_SELL), command);
     }
-//    @Test
-//    public void parseCommand_edit() throws Exception {
-//        Person person = new PersonBuilder().build();
-//        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(person).build();
-//        EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-//                + INDEX_FIRST_PERSON.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
-//        assertEquals(new EditCommand(INDEX_FIRST_PERSON, descriptor), command);
-//    }
 
     @Test
     public void parseCommand_unrecognisedInput_throwsParseException() {

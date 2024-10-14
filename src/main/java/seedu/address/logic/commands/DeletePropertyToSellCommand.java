@@ -34,6 +34,9 @@ public class DeletePropertyToSellCommand extends Command {
     private final Index personIndex;
     private final Index propertyToSellIndex;
     public DeletePropertyToSellCommand(Index personIndex, Index propertyToSellIndex) {
+        requireNonNull(personIndex);
+        requireNonNull(propertyToSellIndex);
+
         this.personIndex = personIndex;
         this.propertyToSellIndex = propertyToSellIndex;
     }
@@ -91,6 +94,30 @@ public class DeletePropertyToSellCommand extends Command {
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,
                 updatedSellingProperties, updatedBuyingProperties);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof DeletePropertyToSellCommand)) {
+            return false;
+        }
+
+        DeletePropertyToSellCommand otherCommand = (DeletePropertyToSellCommand) other;
+        return personIndex.equals(otherCommand.personIndex)
+                && propertyToSellIndex.equals(otherCommand.propertyToSellIndex);
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .add("personIndex", personIndex)
+                .add("propertyToSellIndex", propertyToSellIndex)
+                .toString();
     }
 
     /**
