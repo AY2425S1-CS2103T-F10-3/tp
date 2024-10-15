@@ -40,6 +40,8 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
+        buyingProperties = new ArrayList<>();
+        sellingProperties = new ArrayList<>();
     }
 
     /**
@@ -51,6 +53,8 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         tags = new HashSet<>(personToCopy.getTags());
+        buyingProperties = new ArrayList<>(personToCopy.getBuyingProperties());
+        sellingProperties = new ArrayList<>(personToCopy.getSellingProperties());
     }
 
     /**
@@ -97,7 +101,9 @@ public class PersonBuilder {
      * Sets the {@code buyingProperties} of the {@code Person} that we are building.
      */
     public PersonBuilder withBuyProperty(Property property) {
-        this.buyingProperties.add(property);
+        if (!this.buyingProperties.contains(property)) {
+            this.buyingProperties.add(property);
+        }
         return this;
     }
 
@@ -105,7 +111,9 @@ public class PersonBuilder {
      * Sets the {@code sellingProperties} of the {@code Person} that we are building.
      */
     public PersonBuilder withSellProperty(Property property) {
-        this.sellingProperties.add(property);
+        if (!this.sellingProperties.contains(property)) {
+            this.sellingProperties.add(property);
+        }
         return this;
     }
 
