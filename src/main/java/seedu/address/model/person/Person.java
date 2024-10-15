@@ -82,6 +82,14 @@ public class Person {
         return Collections.unmodifiableSet(tags);
     }
 
+    public List<Property> getListOfSellingProperties() {
+        return sellingProperties;
+    }
+
+    public List<Property> getListOfBuyingProperties() {
+        return buyingProperties;
+    }
+
     /**
      * Returns a new list of properties to sell.
      */
@@ -124,6 +132,23 @@ public class Person {
      */
     public void addBuyProperty(Property property) {
         buyingProperties.add(property);
+    }
+
+    /**
+     * Returns true if property is in the list of properties to sell.
+     * @param property Property to check
+     * @return boolean
+     */
+    public boolean containsSellProperty(Property property) {
+        return sellingProperties.contains(property);
+    }
+
+    /**
+     * Adds a property to the list of properties to sell.
+     * @param property Property to add
+     */
+    public void addSellProperty(Property property) {
+        sellingProperties.add(property);
     }
 
     /**
