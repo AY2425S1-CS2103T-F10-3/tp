@@ -14,6 +14,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.person.Person;
@@ -44,6 +45,9 @@ public class TypicalPersons {
     public static final Person HENRY = new PersonBuilder().withName("Henry Meier").withPhone("8482424")
             .withEmail("henry@example.com").withAddress("kent ridge")
             .withBuyProperty(new PropertyBuilder().build()).build();
+    public static final Person IVY = new PersonBuilder().withName("Ivy Best").withPhone("9482442")
+            .withEmail("ivy@example.com").withAddress("6th street")
+            .withSellProperty(new PropertyBuilder().build()).build();
 
     // Manually added
     public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withPhone("8482424")
@@ -74,6 +78,6 @@ public class TypicalPersons {
     }
 
     public static List<Person> getTypicalPersons() {
-        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE, HENRY));
+        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE, HENRY, IVY));
     }
 }
