@@ -8,7 +8,7 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PROPERTY_TO_SELL;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PROPERTY;
 
 /**
  * As we are only doing white-box testing, our test cases do not cover path variations
@@ -24,7 +24,7 @@ public class DeletePropertyToSellCommandParserTest {
     @Test
     public void parse_validArgs_returnsDeleteCommand() {
         assertParseSuccess(parser, "1 1",
-                new DeletePropertyToSellCommand(INDEX_FIRST_PERSON, INDEX_FIRST_PROPERTY_TO_SELL));
+                new DeletePropertyToSellCommand(INDEX_FIRST_PERSON, INDEX_FIRST_PROPERTY));
     }
 
     @Test

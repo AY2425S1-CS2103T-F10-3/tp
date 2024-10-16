@@ -3,21 +3,20 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
+import seedu.address.model.person.Condo;
 import seedu.address.model.person.PostalCode;
 import seedu.address.model.person.Price;
-import seedu.address.model.person.Property;
 import seedu.address.model.person.UnitNumber;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
 /**
- * A utility class to help with building Property objects.
+ * A utility class to help with building Condo objects
  */
-public class PropertyBuilder {
-
-    public static final String DEFAULT_POSTAL_CODE = "123456";
-    public static final String DEFAULT_UNIT_NUMBER = "10-01";
-    public static final String DEFAULT_PRICE = "1500000";
+public class CondoToBuyBuilder {
+    public static final String DEFAULT_POSTAL_CODE = "212121";
+    public static final String DEFAULT_UNIT_NUMBER = "22-22";
+    public static final String DEFAULT_PRICE = "2100000";
 
     private PostalCode postalCode;
     private UnitNumber unitNumber;
@@ -27,7 +26,7 @@ public class PropertyBuilder {
     /**
      * Creates a {@code PropertyBuilder} with the default details.
      */
-    public PropertyBuilder() {
+    public CondoToBuyBuilder() {
         postalCode = new PostalCode(DEFAULT_POSTAL_CODE);
         unitNumber = new UnitNumber(DEFAULT_UNIT_NUMBER);
         price = new Price(DEFAULT_PRICE);
@@ -37,7 +36,7 @@ public class PropertyBuilder {
     /**
      * Sets the {@code PostalCode} of the {@code Property} that we are building.
      */
-    public PropertyBuilder withPostalCode(String postalCode) {
+    public CondoToBuyBuilder withPostalCode(String postalCode) {
         this.postalCode = new PostalCode(postalCode);
         return this;
     }
@@ -45,7 +44,7 @@ public class PropertyBuilder {
     /**
      * Sets the {@code UnitNumber} of the {@code Property} that we are building.
      */
-    public PropertyBuilder withUnitNumber(String unitNumber) {
+    public CondoToBuyBuilder withUnitNumber(String unitNumber) {
         this.unitNumber = new UnitNumber(unitNumber);
         return this;
     }
@@ -53,20 +52,20 @@ public class PropertyBuilder {
     /**
      * Sets the {@code Price} of the {@code Property} that we are building.
      */
-    public PropertyBuilder withPrice(String price) {
+    public CondoToBuyBuilder withPrice(String price) {
         this.price = new Price(price);
         return this;
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
+     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Property} that we are building.
      */
-    public PropertyBuilder withTags(String ... tags) {
+    public CondoToBuyBuilder withTags(String ... tags) {
         this.tags = SampleDataUtil.getTagSet(tags);
         return this;
     }
 
-    public Property build() {
-        return new Property(postalCode, unitNumber, price, tags) {};
+    public Condo build() {
+        return new Condo(postalCode, unitNumber, price, tags) {};
     }
 }

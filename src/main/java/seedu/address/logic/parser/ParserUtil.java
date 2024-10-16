@@ -2,6 +2,7 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,11 +26,16 @@ import seedu.address.model.tag.Tag;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
-    public static final String MESSAGE_INVALID_INDEXES = "Insufficient number of indexes provided.";
+
+    public static final String MESSAGE_INCORRECT_INDEXES = "There should be 2 indexes separated by a space.\n"
+            + "Indexes should be non-zero unsigned integers.";
+    public static final int ARGUMENT_COUNT = 2;
+
 
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
+     *
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
@@ -41,43 +47,41 @@ public class ParserUtil {
     }
 
     /**
-     * Parses {@code oneBasedIndex oneBasedIndex} into an {@code Index} and returns it.
-     * Leading and trailing whitespaces will be trimmed.
+     * Returns an {@code Index} of personIndex from an argument String.
      *
-     * @param oneBasedIndexes A String containing Indexes separated by one or more spaces
-     * @return Index of the first index in the oneBasedIndexes
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
-    public static Index parseFirstIndex(String oneBasedIndexes, int minimumIndexCount) throws ParseException {
-        String[] indexList = oneBasedIndexes.trim().split("\\s+");
-        if (indexList.length < minimumIndexCount) {
-            throw new ParseException(MESSAGE_INVALID_INDEXES);
-        }
-        String firstIndex = indexList[0].trim();
-        if (!StringUtil.isNonZeroUnsignedInteger(firstIndex)) {
-            throw new ParseException(MESSAGE_INVALID_INDEX);
-        }
-        return Index.fromOneBased(Integer.parseInt(firstIndex));
+    public static Index parsePersonIndex(String args) throws ParseException {
+        ArrayList<Index> indexArrayList = getIndexList(args);
+        return indexArrayList.get(0);
     }
 
     /**
-     * Parses {@code oneBasedIndex oneBasedIndex} into an {@code Index} and returns it.
-     * Leading and trailing whitespaces will be trimmed.
+     * Returns an {@code Index} of propertyIndex from an argument String.
      *
-     * @param oneBasedIndexes A String containing Indexes separated by one or more spaces
-     * @return Index of the second index in the oneBasedIndexes
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
-    public static Index parseSecondIndex(String oneBasedIndexes, int minimumIndexCount) throws ParseException {
-        String[] indexList = oneBasedIndexes.trim().split("\\s+");
-        if (indexList.length < minimumIndexCount) {
-            throw new ParseException(MESSAGE_INVALID_INDEXES);
+    public static Index parsePropertyIndex(String args) throws ParseException {
+        ArrayList<Index> indexArrayList = getIndexList(args);
+        return indexArrayList.get(1);
+    }
+
+    /**
+     * Returns an {@code ArrayList<Index>} of personIndex and propertyIndex from an argument String.
+     *
+     * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
+     */
+    private static ArrayList<Index> getIndexList(String args) throws ParseException {
+        String[] indexList = args.trim().split("\\s+");
+        ArrayList<Index> indexArrayList = new ArrayList<>();
+        if (indexList.length != ARGUMENT_COUNT) {
+            throw new ParseException(MESSAGE_INCORRECT_INDEXES);
         }
-        String secondIndex = indexList[1].trim();
-        if (!StringUtil.isNonZeroUnsignedInteger(secondIndex)) {
-            throw new ParseException((MESSAGE_INVALID_INDEX));
+        for (String i : indexList) {
+            Index index = parseIndex(i);
+            indexArrayList.add(index);
         }
-        return Index.fromOneBased(Integer.parseInt(secondIndex));
+        return indexArrayList;
     }
 
     /**

@@ -1,24 +1,23 @@
 package seedu.address.testutil;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
+import seedu.address.model.person.Condo;
 import seedu.address.model.person.PostalCode;
 import seedu.address.model.person.Price;
-import seedu.address.model.person.Property;
 import seedu.address.model.person.UnitNumber;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
 /**
- * A utility class to help with building Property objects.
+ * A utility class to help with building Condo objects
  */
-public class PropertyToSellBuilder {
+public class CondoToSellBuilder {
+    public static final String DEFAULT_POSTAL_CODE = "202020";
+    public static final String DEFAULT_UNIT_NUMBER = "25-01";
+    public static final String DEFAULT_PRICE = "2200000";
 
-    public static final String DEFAULT_POSTAL_CODE = "121212";
-    public static final String DEFAULT_UNIT_NUMBER = "10-02";
-    public static final String DEFAULT_PRICE = "1600000";
     private PostalCode postalCode;
     private UnitNumber unitNumber;
     private Price price;
@@ -27,7 +26,7 @@ public class PropertyToSellBuilder {
     /**
      * Creates a {@code PropertyBuilder} with the default details.
      */
-    public PropertyToSellBuilder() {
+    public CondoToSellBuilder() {
         postalCode = new PostalCode(DEFAULT_POSTAL_CODE);
         unitNumber = new UnitNumber(DEFAULT_UNIT_NUMBER);
         price = new Price(DEFAULT_PRICE);
@@ -37,7 +36,7 @@ public class PropertyToSellBuilder {
     /**
      * Sets the {@code PostalCode} of the {@code Property} that we are building.
      */
-    public PropertyToSellBuilder withPostalCode(String postalCode) {
+    public CondoToSellBuilder withPostalCode(String postalCode) {
         this.postalCode = new PostalCode(postalCode);
         return this;
     }
@@ -45,7 +44,7 @@ public class PropertyToSellBuilder {
     /**
      * Sets the {@code UnitNumber} of the {@code Property} that we are building.
      */
-    public PropertyToSellBuilder withUnitNumber(String unitNumber) {
+    public CondoToSellBuilder withUnitNumber(String unitNumber) {
         this.unitNumber = new UnitNumber(unitNumber);
         return this;
     }
@@ -53,24 +52,20 @@ public class PropertyToSellBuilder {
     /**
      * Sets the {@code Price} of the {@code Property} that we are building.
      */
-    public PropertyToSellBuilder withPrice(String price) {
+    public CondoToSellBuilder withPrice(String price) {
         this.price = new Price(price);
         return this;
     }
 
     /**
-<<<<<<< HEAD
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
-=======
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Property} that we are building.
->>>>>>> add-deletePropertyToBuyCommand
      */
-    public PropertyToSellBuilder withTags(String ... tags) {
+    public CondoToSellBuilder withTags(String ... tags) {
         this.tags = SampleDataUtil.getTagSet(tags);
         return this;
     }
 
-    public Property build() {
-        return new Property(postalCode, unitNumber, price, tags) {};
+    public Condo build() {
+        return new Condo(postalCode, unitNumber, price, tags) {};
     }
 }

@@ -2,12 +2,24 @@ package seedu.address.testutil;
 
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_JACK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_KATE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_JACK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_KATE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_JACK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_KATE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_JACK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_KATE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PROPERTY_TO_BUY_JACK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PROPERTY_TO_BUY_KATE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PROPERTY_TO_SELL_JACK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PROPERTY_TO_SELL_KATE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
@@ -15,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.model.AddressBook;
 import seedu.address.model.person.Person;
 
@@ -27,8 +40,8 @@ public class TypicalPersons {
             .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
             .withPhone("94351253")
             .withTags("friends")
-            .withSellProperty(new PropertyToSellBuilder().build())
-            .withBuyProperty(new PropertyBuilder().build())
+            .withSellProperty()
+            .withBuyProperty()
             .build();
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
@@ -46,7 +59,7 @@ public class TypicalPersons {
             .withEmail("anna@example.com").withAddress("4th street").build();
     public static final Person HENRY = new PersonBuilder().withName("Henry Meier").withPhone("8482424")
             .withEmail("henry@example.com").withAddress("kent ridge")
-            .withBuyProperty(new PropertyBuilder().build()).build();
+            .withBuyProperty(new PropertyToBuyBuilder().build()).build();
 
     // Manually added
     public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withPhone("8482424")
@@ -59,6 +72,15 @@ public class TypicalPersons {
             .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
     public static final Person BOB = new PersonBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
+            .build();
+
+    public static final Person JACK = new PersonBuilder().withName(VALID_NAME_JACK).withPhone(VALID_PHONE_JACK)
+            .withEmail(VALID_EMAIL_JACK).withAddress(VALID_ADDRESS_JACK).withTags(VALID_TAG_FRIEND)
+            .withBuyProperty(VALID_PROPERTY_TO_BUY_JACK).withSellProperty(VALID_PROPERTY_TO_SELL_JACK)
+            .build();
+    public static final Person KATE = new PersonBuilder().withName(VALID_NAME_KATE).withPhone(VALID_PHONE_KATE)
+            .withEmail(VALID_EMAIL_KATE).withAddress(VALID_ADDRESS_KATE).withTags(VALID_TAG_FRIEND)
+            .withBuyProperty(VALID_PROPERTY_TO_BUY_KATE).withSellProperty(VALID_PROPERTY_TO_SELL_KATE)
             .build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
@@ -77,6 +99,12 @@ public class TypicalPersons {
     }
 
     public static List<Person> getTypicalPersons() {
-        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE, HENRY));
+        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE, HENRY, JACK, KATE));
+    }
+
+    public static Index getTypicalPersonIndex(Person person) {
+        int index = getTypicalPersons().indexOf(person);
+        assert index != -1;
+        return Index.fromZeroBased(index);
     }
 }

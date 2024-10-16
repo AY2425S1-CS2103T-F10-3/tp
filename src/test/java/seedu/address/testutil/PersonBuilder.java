@@ -23,6 +23,8 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    public static final Property DEFAULT_BUYING_PROPERTY = new PropertyToBuyBuilder().build();
+    public static final Property DEFAULT_SELLING_PROPERTY = new PropertyToSellBuilder().build();
     private Name name;
     private Phone phone;
     private Email email;
@@ -30,6 +32,7 @@ public class PersonBuilder {
     private Set<Tag> tags;
     private List<Property> buyingProperties = new ArrayList<>();
     private List<Property> sellingProperties = new ArrayList<>();
+
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -40,8 +43,10 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
-        buyingProperties = new ArrayList<>();
         sellingProperties = new ArrayList<>();
+        buyingProperties = new ArrayList<>();
+        sellingProperties.add(DEFAULT_SELLING_PROPERTY);
+        buyingProperties.add(DEFAULT_BUYING_PROPERTY);
     }
 
     /**
@@ -53,8 +58,8 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         tags = new HashSet<>(personToCopy.getTags());
-        buyingProperties = new ArrayList<>(personToCopy.getBuyingProperties());
-        sellingProperties = new ArrayList<>(personToCopy.getSellingProperties());
+        sellingProperties = new ArrayList<>(personToCopy.getListOfSellingProperties());
+        buyingProperties = new ArrayList<>(personToCopy.getListOfBuyingProperties());
     }
 
     /**
@@ -101,9 +106,17 @@ public class PersonBuilder {
      * Sets the {@code buyingProperties} of the {@code Person} that we are building.
      */
     public PersonBuilder withBuyProperty(Property property) {
-        if (!this.buyingProperties.contains(property)) {
-            this.buyingProperties.add(property);
-        }
+        List<Property> newPropertyList = new ArrayList<>();
+        newPropertyList.add(property);
+        this.buyingProperties = newPropertyList;
+        return this;
+    }
+
+    /**
+     * Sets the {@code buyingProperties} of the {@code Person} that we are building to an empty ArrayList.
+     */
+    public PersonBuilder withBuyProperty() {
+        this.buyingProperties = new ArrayList<>();
         return this;
     }
 
@@ -111,9 +124,17 @@ public class PersonBuilder {
      * Sets the {@code sellingProperties} of the {@code Person} that we are building.
      */
     public PersonBuilder withSellProperty(Property property) {
-        if (!this.sellingProperties.contains(property)) {
-            this.sellingProperties.add(property);
-        }
+        List<Property> newPropertyList = new ArrayList<>();
+        newPropertyList.add(property);
+        this.sellingProperties = newPropertyList;
+        return this;
+    }
+
+    /**
+     * Sets the {@code sellingProperties} of the {@code Person} that we are building to an empty ArrayList.
+     */
+    public PersonBuilder withSellProperty() {
+        this.sellingProperties = new ArrayList<>();
         return this;
     }
 

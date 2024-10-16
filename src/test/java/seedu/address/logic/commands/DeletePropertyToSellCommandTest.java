@@ -14,7 +14,9 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Property;
-import seedu.address.testutil.PropertyBuilder;
+import seedu.address.testutil.PropertyToBuyBuilder;
+import seedu.address.testutil.PropertyToSellBuilder;
+
 public class DeletePropertyToSellCommandTest {
     private final Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
     private final Index indexOfPersonWithProperty = Index.fromOneBased(1);

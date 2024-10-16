@@ -23,8 +23,8 @@ public class DeletePropertyToSellCommandParser implements Parser<DeletePropertyT
      */
     public DeletePropertyToSellCommand parse(String args) throws ParseException {
         try {
-            Index personIndex = ParserUtil.parseFirstIndex(args, MINIMUM_INDEX_COUNT);
-            Index propertyToSellIndex = ParserUtil.parseSecondIndex(args, MINIMUM_INDEX_COUNT);
+            Index personIndex = ParserUtil.parsePersonIndex(args);
+            Index propertyToSellIndex = ParserUtil.parsePropertyIndex(args);
             return new DeletePropertyToSellCommand(personIndex, propertyToSellIndex);
         } catch (ParseException pe) {
             throw new ParseException(
