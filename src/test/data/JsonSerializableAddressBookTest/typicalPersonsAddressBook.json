@@ -49,14 +49,26 @@
     "address" : "kent ridge",
     "tags" : [ ],
     "sellProperties" : [],
-    "buyProperties" : [ "[123456] Unit Number: 10-01 Price: 1500000 Tags: [] HousingType: HDB" ]
+    "buyProperties" : [ {
+      "housingType": "H",
+      "postalCode": "123456",
+      "unitNumber": "10-01",
+      "price": "1500000",
+      "tags": []
+    } ]
   }, {
       "name": "Ivy Best",
       "phone": "9482442",
       "email": "ivy@example.com",
       "address": "6th street",
       "tags": [],
-      "sellProperties": [ "[121212] Unit Number: 10-02 Price: 1600000 Tags: [] HousingType: HDB" ],
+      "sellProperties": [ {
+        "housingType": "H",
+        "postalCode": "121212",
+        "unitNumber": "10-02",
+        "price": "1600000",
+        "tags": []
+      } ],
       "buyProperties": []
   } ]
 }
