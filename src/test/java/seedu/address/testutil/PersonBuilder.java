@@ -138,22 +138,6 @@ public class PersonBuilder {
         return this;
     }
 
-    /**
-     * Sets the {@code sellingProperties} of the {@code Person} that we are building.
-     */
-    public PersonBuilder withSellProperty(Property property) {
-        this.sellingProperties.add(property);
-        return this;
-    }
-
-    /**
-     * Sets the {@code sellingProperties} of the {@code Person} that we are building.
-     */
-    public PersonBuilder withSellProperty(Property property) {
-        this.sellingProperties.add(property);
-        return this;
-    }
-
     public Person build() {
         return new Person(name, phone, email, address, tags, sellingProperties, buyingProperties);
     }
