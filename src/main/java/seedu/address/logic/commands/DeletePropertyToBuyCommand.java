@@ -26,7 +26,7 @@ import seedu.address.model.person.Property;
 import seedu.address.model.tag.Tag;
 
 /**
- * Edits the details of an existing person in the address book.
+ * Deletes the details of an existing person's property-to-buy in the address book.
  */
 public class DeletePropertyToBuyCommand extends Command {
 
