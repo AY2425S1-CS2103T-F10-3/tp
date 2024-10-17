@@ -9,7 +9,6 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 
 import java.util.Arrays;
 import java.util.List;
-//import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
@@ -17,9 +16,10 @@ import org.junit.jupiter.api.Test;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AddPropertyToBuyCommand;
-//import seedu.address.logic.commands.AddPropertyToSellCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.DeletePropertyToBuyCommand;
+import seedu.address.logic.commands.DeletePropertyToBuyCommand.EditPersonPropertyDescriptor;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.commands.ExitCommand;
@@ -27,19 +27,14 @@ import seedu.address.logic.commands.FindNameCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-//import seedu.address.model.person.Condo;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
-/*import seedu.address.model.person.PostalCode;
-import seedu.address.model.person.Price;
-import seedu.address.model.person.Property;
-import seedu.address.model.person.UnitNumber;
-import seedu.address.model.tag.Tag;*/
 import seedu.address.model.person.Property;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
+import seedu.address.testutil.EditPersonPropertyDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.PersonUtil;
-import seedu.address.testutil.PropertyBuilder;
+import seedu.address.testutil.PropertyToBuyBuilder;
 
 public class AddressBookParserTest {
 
@@ -117,10 +112,24 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_addBuy() throws Exception {
         Index index = Index.fromOneBased(1);
-        Property property = new PropertyBuilder().build();
+        Property property = new PropertyToBuyBuilder().withHousingType("c").build();
         AddPropertyToBuyCommand command =
                 (AddPropertyToBuyCommand) parser.parseCommand("addBuy 1 ht/c bp/1500000 pc/123456 un/10-01");
         assertEquals(new AddPropertyToBuyCommand(index, property), command);
+    }
+
+    @Test
+    public void parseCommand_dellBuy() throws Exception {
+        Index personIndex = Index.fromOneBased(1);
+        Index propertyIndex = Index.fromOneBased(1);
+        EditPersonPropertyDescriptor descriptor = new EditPersonPropertyDescriptorBuilder().build();
+
+        DeletePropertyToBuyCommand expectedCommand = new DeletePropertyToBuyCommand(personIndex,
+                propertyIndex, descriptor);
+        DeletePropertyToBuyCommand command =
+                (DeletePropertyToBuyCommand) parser.parseCommand("delBuy 1 1");
+
+        assertEquals(expectedCommand, command);
     }
 
     @Test
