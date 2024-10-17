@@ -119,6 +119,8 @@
         "locating-persons-by-name-findn": "Locating persons by name: findn",
         "locating-persons-by-phone-number-findp": "Locating persons by phone number: findp",
         "deleting-a-person-delete": "Deleting a person : delete",
+        "deleting-a-property-to-be-sold-delsell": "Deleting a property to be sold : delSell",
+        "deleting-a-property-to-be-bought-delsell": "Deleting a property to be bought : delSell",
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "exiting-the-program-exit": "Exiting the program : exit",
         "saving-the-data": "Saving the data",
