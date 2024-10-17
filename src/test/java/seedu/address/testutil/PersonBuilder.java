@@ -43,8 +43,8 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
-//         sellingProperties.add(DEFAULT_SELLING_PROPERTY);
-//         buyingProperties.add(DEFAULT_BUYING_PROPERTY);
+        // sellingProperties.add(DEFAULT_SELLING_PROPERTY);
+        // buyingProperties.add(DEFAULT_BUYING_PROPERTY);
         buyingProperties = new ArrayList<>();
         sellingProperties = new ArrayList<>();
     }
