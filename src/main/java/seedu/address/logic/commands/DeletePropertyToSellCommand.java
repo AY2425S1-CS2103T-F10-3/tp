@@ -254,15 +254,6 @@ public class DeletePropertyToSellCommand extends Command {
         }
 
         /**
-         * Removes the {@code buyiingProperty} specified by the propertyIndex
-         */
-        public void deleteBuyingProperties(Index propertyIndex) {
-            if (buyingProperties.size() > 0) {
-                buyingProperties.remove(propertyIndex.getZeroBased());
-            }
-        }
-
-        /**
          * Removes the {@code sellingProperty} specified by the propertyIndex
          */
         public void deleteSellingProperties(Index propertyIndex) {
