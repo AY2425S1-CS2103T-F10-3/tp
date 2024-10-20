@@ -14,6 +14,7 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PROPERTY;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PROPERTY;
 import static seedu.address.testutil.TypicalPersons.ALICE;
+import static seedu.address.testutil.TypicalPersons.BENSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
@@ -28,6 +29,7 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.EditPersonPropertyToSellDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.PropertyToBuyBuilder;
 import seedu.address.testutil.TypicalPersons;
 
 public class DeletePropertyToSellCommandTest {
@@ -47,8 +49,8 @@ public class DeletePropertyToSellCommandTest {
                 Messages.formatProperties(editedPerson));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        int jackIndexInFilteredList = model.getFilteredPersonList().indexOf(ALICE);
-        expectedModel.setPerson(model.getFilteredPersonList().get(jackIndexInFilteredList), editedPerson);
+        int aliceIndexInFilteredList = model.getFilteredPersonList().indexOf(ALICE);
+        expectedModel.setPerson(model.getFilteredPersonList().get(aliceIndexInFilteredList), editedPerson);
 
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
     }
@@ -66,7 +68,45 @@ public class DeletePropertyToSellCommandTest {
     }
 
     @Test
-    public void execute_invalidPersonIndexUnfilteredList_failure() {
+    public void execute_personIndexOutOfBounds_failure() {
+        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
+        DeletePropertyToSellCommand command = new DeletePropertyToSellCommand(outOfBoundIndex, INDEX_FIRST_PROPERTY,
+                new EditPersonPropertyToSellDescriptorBuilder().build());
+
+        assertCommandFailure(command, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+    }
+
+    @Test
+    public void execute_nullSellingProperties_failure() {
+        Person personWithoutSellingProperties = new PersonBuilder(BENSON).build();
+        Index personIndexInList = TypicalPersons.getTypicalPersonIndex(BENSON);
+        int personIndexInFilteredList = model.getFilteredPersonList().indexOf(BENSON);
+        model.setPerson(model.getFilteredPersonList().get(personIndexInFilteredList), personWithoutSellingProperties);
+
+        DeletePropertyToSellCommand command = new DeletePropertyToSellCommand(personIndexInList, INDEX_FIRST_PROPERTY,
+                new EditPersonPropertyToSellDescriptorBuilder().build());
+
+        assertCommandFailure(command, model, Messages.MESSAGE_NO_PROPERTIES_TO_DELETE);
+    }
+
+    @Test
+    public void execute_noPropertiesToDelete_failure() {
+
+        Person personWithoutSellingProperties = new PersonBuilder(ALICE).withSellProperty().build();
+        Index personIndexInList = TypicalPersons.getTypicalPersonIndex(ALICE);
+        int personIndexInFilteredList = model.getFilteredPersonList().indexOf(ALICE);
+        model.setPerson(model.getFilteredPersonList().get(personIndexInFilteredList), personWithoutSellingProperties);
+
+        DeletePropertyToSellCommand command = new DeletePropertyToSellCommand(INDEX_FIRST_PERSON, INDEX_FIRST_PROPERTY,
+                new EditPersonPropertyToSellDescriptorBuilder().build());
+
+        assertCommandFailure(command, model, Messages.MESSAGE_NO_PROPERTIES_TO_DELETE);
+    }
+
+
+
+    @Test
+    public void execute_PersonIndexOutOfBoundInFilteredList_failure() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
         EditPersonPropertyToSellDescriptor descriptor = new EditPersonPropertyToSellDescriptorBuilder()
                 .withName(VALID_NAME_BOB).build();
@@ -75,6 +115,19 @@ public class DeletePropertyToSellCommandTest {
 
         assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
+
+    @Test
+    public void execute_propertyIndexOutOfBoundsInFilteredList_failure() {
+        Index personIndex = INDEX_FIRST_PERSON;
+        Person person = model.getFilteredPersonList().get(personIndex.getZeroBased());
+        Index invalidPropertyIndex = Index.fromOneBased(person.getListOfSellingProperties().size() + 1);
+
+        DeletePropertyToSellCommand command = new DeletePropertyToSellCommand(personIndex, invalidPropertyIndex,
+                new EditPersonPropertyToSellDescriptorBuilder().build());
+
+        assertCommandFailure(command, model, Messages.MESSAGE_INVALID_PROPERTY_DISPLAYED_INDEX);
+    }
+
 
     /**
      * Deletes a property of a person in the filtered list where index is larger than size of filtered list,
