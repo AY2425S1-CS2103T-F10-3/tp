@@ -106,18 +106,18 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code sellingProperties} of the {@code Person} that we are building.
-     */
-    public PersonBuilder withSellProperty(Property property) {
-        this.sellingProperties.add(property);
-        return this;
-    }
-
-    /**
      * Sets the {@code buyingProperties} of the {@code Person} that we are building to an empty arrayList.
      */
     public PersonBuilder withBuyProperty() {
         this.buyingProperties = new ArrayList<>();
+        return this;
+    }
+
+    /**
+     * Sets the {@code sellingProperties} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withSellProperty(Property property) {
+        this.sellingProperties.add(property);
         return this;
     }
 

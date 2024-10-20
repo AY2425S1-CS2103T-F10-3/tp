@@ -29,7 +29,6 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.EditPersonPropertyToSellDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
-import seedu.address.testutil.PropertyToBuyBuilder;
 import seedu.address.testutil.TypicalPersons;
 
 public class DeletePropertyToSellCommandTest {
@@ -106,7 +105,7 @@ public class DeletePropertyToSellCommandTest {
 
 
     @Test
-    public void execute_PersonIndexOutOfBoundInFilteredList_failure() {
+    public void execute_personIndexOutOfBoundInFilteredList_failure() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
         EditPersonPropertyToSellDescriptor descriptor = new EditPersonPropertyToSellDescriptorBuilder()
                 .withName(VALID_NAME_BOB).build();
