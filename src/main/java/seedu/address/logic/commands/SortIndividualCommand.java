@@ -22,7 +22,7 @@ public class SortIndividualCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sorts the list of properties for each Person "
             + "in the AddressBook based on input field.\n"
             + "Parameters: "
-            + "INDEX (Must be a positive integer) "
+            + "INDEX "
             + PREFIX_FIELD + "[FIELD] "
             + PREFIX_ORDER + "[ORDER]"
             + " (either \"o/H for High to Low\" or \"o/L for Low to High\")\n"
