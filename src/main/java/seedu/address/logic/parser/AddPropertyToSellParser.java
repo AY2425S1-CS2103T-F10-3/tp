@@ -41,17 +41,18 @@ public class AddPropertyToSellParser implements Parser<AddPropertyToSellCommand>
                 ArgumentTokenizer.tokenize(args, PREFIX_HOUSING_TYPE, PREFIX_SELLING_PRICE,
                         PREFIX_POSTAL_CODE, PREFIX_UNIT_NUMBER, PREFIX_TAG);
 
+        if (!arePrefixesPresent(argMultimap, PREFIX_HOUSING_TYPE, PREFIX_SELLING_PRICE,
+                PREFIX_POSTAL_CODE, PREFIX_UNIT_NUMBER)) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    AddPropertyToSellCommand.MESSAGE_USAGE));
+        }
+
         Index index;
 
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {
             throw new ParseException(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
-        }
-        if (!arePrefixesPresent(argMultimap, PREFIX_HOUSING_TYPE, PREFIX_SELLING_PRICE,
-                PREFIX_POSTAL_CODE, PREFIX_UNIT_NUMBER)) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    AddPropertyToSellCommand.MESSAGE_USAGE));
         }
 
         // Create a new Property object here and pass it to AddPropertyToSellCommand(Property property);

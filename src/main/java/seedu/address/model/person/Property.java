@@ -148,7 +148,7 @@ public abstract class Property {
         String formattedTags = tags.stream()
                 .map(Tag::toString) // Convert each Tag object to its String representation
                 .collect(Collectors.joining(", ")); // Join with a comma and space
-        return "Postal Code: " + postalCode + "; " + " Unit Number: " + unitNumber + "; " + " Price: " + price + "; "
+        return postalCode + ", " + unitNumber + "; " + " Price: " + price + "; "
                 + " Actual Price: " + actualPrice + "; Tags: " + formattedTags;
     }
     /*public String toString() {

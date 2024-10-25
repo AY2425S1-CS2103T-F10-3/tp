@@ -27,7 +27,7 @@ public class PostalCode {
 
     @Override
     public String toString() {
-        return value;
+        return "S(" + value + ")";
     }
 
     @Override
