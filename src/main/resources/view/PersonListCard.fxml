@@ -72,13 +72,19 @@
                </Label>
             </children>
          </HBox>
-
-      <!-- Added Label for Selling Properties -->
-      <Label styleClass="cell_small_label" text="Selling Properties:" />
+      <Label styleClass="cell_small_label" text="Selling Properties:">
+            <graphic>
+      
+            <!-- Added Label for Selling Properties -->
+          <ImageView fx:id="sellingPropertiesIcon" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" styleClass="grey-image" />
+            </graphic></Label>
       <FlowPane fx:id="sellingProperties" />
-
-      <!-- Added Label for Buying Properties -->
-      <Label styleClass="cell_small_label" text="Buying Properties:" />
+      <Label styleClass="cell_small_label" text="Buying Properties:">
+            <graphic>
+      
+            <!-- Added Label for Buying Properties -->
+          <ImageView fx:id="buyingPropertiesIcon" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" styleClass="grey-image" />
+            </graphic></Label>
       <FlowPane fx:id="buyingProperties" />
 
     </VBox>

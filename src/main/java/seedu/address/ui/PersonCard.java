@@ -55,12 +55,17 @@ public class PersonCard extends UiPart<Region> {
     private ImageView addressIcon;
     @FXML
     private ImageView emailIcon;
+    @FXML
+    private ImageView sellingPropertiesIcon;
+    @FXML
+    private ImageView buyingPropertiesIcon;
 
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
-    public PersonCard(Person person, int displayedIndex, Image phoneImage, Image addressImage, Image emailImage) {
+    public PersonCard(Person person, int displayedIndex, Image phoneImage, Image addressImage, Image emailImage,
+                      Image sellingPropertiesImage, Image buyingPropertiesImage) {
         super(FXML);
         this.person = person;
         id.setText(displayedIndex + ". ");
@@ -71,10 +76,12 @@ public class PersonCard extends UiPart<Region> {
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-        // Set the images for the phone, address and email icons
+        // Set the images for personCard icons
         phoneIcon.setImage(phoneImage);
         addressIcon.setImage(addressImage);
         emailIcon.setImage(emailImage);
+        sellingPropertiesIcon.setImage(sellingPropertiesImage);
+        buyingPropertiesIcon.setImage(buyingPropertiesImage);
         // Initialize the properties display
         updateSellingProperties();
         updateBuyingProperties();

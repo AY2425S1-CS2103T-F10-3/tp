@@ -20,6 +20,8 @@ public class PersonListPanel extends UiPart<Region> {
     private Image phoneIcon = new Image(this.getClass().getResourceAsStream("/images/phone-classic.png"));
     private Image addressIcon = new Image(this.getClass().getResourceAsStream("/images/map-marker.png"));
     private Image emailIcon = new Image(this.getClass().getResourceAsStream("/images/email.png"));
+    private Image sellingPropertiesIcon = new Image(this.getClass().getResourceAsStream("/images/want-to-sell.png"));
+    private Image buyingPropertiesIcon = new Image(this.getClass().getResourceAsStream("/images/want-to-buy.png"));
 
     @FXML
     private ListView<Person> personListView;
@@ -46,7 +48,7 @@ public class PersonListPanel extends UiPart<Region> {
                 setText(null);
             } else {
                 setGraphic(new PersonCard(person, getIndex() + 1,
-                        phoneIcon, addressIcon, emailIcon).getRoot());
+                        phoneIcon, addressIcon, emailIcon, sellingPropertiesIcon, buyingPropertiesIcon).getRoot());
             }
         }
     }
