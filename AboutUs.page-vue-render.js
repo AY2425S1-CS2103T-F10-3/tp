@@ -62,6 +62,6 @@ with(this){return _c('p',[_v("["),_c('a',{attrs:{"href":"http://www.comp.nus.edu
 with(this){return _c('ul',[_c('li',[_v("Role: Team Lead")]),_v(" "),_c('li',[_v("Responsibilities: Responsible for overall project coordination.")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.5.3")]),_v(", generated on Wed, 6 Nov 2024, 15:03:04 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.5.3")]),_v(", generated on Wed, 6 Nov 2024, 20:48:01 GMT+8]")])])])}
 }];
   
