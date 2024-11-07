@@ -114,6 +114,7 @@
         "features": "Features",
         "general-commands": "General Commands",
         "viewing-help-help": "Viewing help : help",
+        "viewing-list-of-commands-commands": "Viewing list of commands : commands",
         "viewing-overall-statistics-stats": "Viewing overall statistics : stats",
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "exiting-the-program-exit": "Exiting the program : exit",
