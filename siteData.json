@@ -62,6 +62,8 @@
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
         "deleting-a-person": "Deleting a person",
+        "sorting-properties-for-a-person": "Sorting properties for a person",
+        "adding-a-new-property-to-buy-or-sell-for-a-person": "Adding a new property to buy or sell for a person",
         "saving-data": "Saving data"
       },
       "headingKeywords": {}
