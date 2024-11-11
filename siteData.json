@@ -63,8 +63,14 @@
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
         "deleting-a-person": "Deleting a person",
-        "sorting-properties-for-a-person": "Sorting properties for a person",
-        "adding-a-new-property-to-buy-or-sell-for-a-person": "Adding a new property to buy or sell for a person"
+        "adding-a-new-property-to-buy-or-sell-for-a-person": "Adding a new property to buy or sell for a person",
+        "finding-a-person-based-on-the-properties-to-buy-or-properties-to-sell": "Finding a person based on the properties-to-buy or properties-to-sell",
+        "finding-a-person-based-on-the-phone-number": "Finding a person based on the phone number",
+        "sorting-properties-for-an-individual-person": "Sorting properties for an individual person",
+        "pin-or-unpin-contacts-in-the-person-list": "Pin or unpin contacts in the person list",
+        "sorting-contacts-in-the-person-list": "Sorting contacts in the person list",
+        "display-statistics": "Display statistics",
+        "quick-display-of-all-commands": "Quick display of all commands"
       },
       "headingKeywords": {}
     },
