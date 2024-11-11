@@ -308,7 +308,7 @@ Format: `findn KEYWORD [MORE_KEYWORDS]`
 * The order of the keywords does not matter. e.g. `Alex Ro` will match `Ro Alex`
 * Only the name is searched.
 * No need for full words to be matched; For example, `AL` will match `Alex`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
+* The command returns names containing any of the keywords typed, meaning that names matching one or more keywords will be included in the results.
   e.g. `Ro Alex` will return `Alex Yeah`, `Roy Balakrishnan`
 
 Examples:
